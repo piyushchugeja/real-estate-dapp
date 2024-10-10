@@ -12,12 +12,12 @@ web3 = new Web3(window.ethereum);
 
 realEstateInstance = new web3.eth.Contract(
     RealEstateContract.abi,
-    "0x1583914C2cc5276b167E483a15a9a465B02DC92e"
+    "0x05Dd6A26953b31A28dce2b0f1ec9516b4b92dd33"
 );
 
 transactionRegistryInstance = new web3.eth.Contract(
     TransactionRegistryContract.abi,
-    "0x2062A04280bb58944C1E0621eaEFE2E2c2C16Cbc"
+    "0x74e6A0bAdfE638843Dd6F040040Fb0E104C9b8dE"
 );
 
 export { realEstateInstance, transactionRegistryInstance };

@@ -16,9 +16,9 @@ contract TransactionRegistry {
 
     event TransactionRecorded(bytes32 transactionHash, uint propertyId, address buyer, address seller, uint amount);
 
-    function recordTransaction(uint propertyId, uint amount, address seller, address buyer) external {
+    function recordTransaction(uint propertyId, uint amount, address seller, address buyer) external
+    returns (bytes32) {
         bytes32 transactionHash = keccak256(abi.encodePacked(propertyId, buyer, seller, amount, block.timestamp));
-
         transactions[transactionHash] = Transaction({
             propertyId: propertyId,
             amount: amount,
@@ -29,6 +29,7 @@ contract TransactionRegistry {
         transactionHashes.push(transactionHash);
 
         emit TransactionRecorded(transactionHash, propertyId, buyer, seller, amount);
+        return transactionHash;
     }
 
     function getTransactionsByAccount(address account) external view returns (bytes32[] memory) {

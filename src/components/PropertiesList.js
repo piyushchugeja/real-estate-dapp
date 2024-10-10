@@ -1,7 +1,7 @@
 // src/components/PropertiesList.js
 import React, { useEffect, useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
-import { buyProperty, getOwnerProperties, getProperties, realEstateInstance } from '../utils';
+import { buyProperty, getOwnerProperties, getProperties, realEstateInstance, transactionRegistryInstance } from '../utils';
 import Swal from 'sweetalert2';
 
 function PropertiesList({ account }) {
@@ -30,11 +30,12 @@ function PropertiesList({ account }) {
 
     const handleBuy = async (id, price) => {
         try {
-            var hash = await buyProperty(id, price, account);
+            var data = await buyProperty(id, price, account);
+            const hash = data.transactionHash;
             Swal.fire({
                 icon: 'success',
                 title: 'Success',
-                text: `Property bought successfully! <br> Transaction Hash: ${hash}`,
+                html: `Property bought successfully. <br> Transaction hash: <code>${hash}</code>`,
             });
         } catch (error) {
             Swal.fire({
