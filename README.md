@@ -40,7 +40,3 @@ Welcome to the **Real Estate DApp**! This decentralized application allows users
 ## Contributing
 
 Contributions are welcome! If you'd like to contribute to this project, please fork the repository and create a pull request with your changes.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
